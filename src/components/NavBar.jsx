@@ -8,6 +8,7 @@ import NotificationBell from './NotificationBell';
 import ProfileAvatar from './ProfileAvatar';
 import CreateButton from './CreateButton';
 import {youtubeLogo} from "../index.js";
+import ToggleButton from "./ToggleButton.jsx";
 
 const defaultTooltipPlacement = 'bottom';
 
@@ -128,6 +129,7 @@ const Navbar = ({ onSearch, toggleSidebar }) => {
             data-tooltip-id="profile-tooltip"
             data-tooltip-content="Profile"
           />
+          <ToggleButton/>
         </div>
       )}
 
