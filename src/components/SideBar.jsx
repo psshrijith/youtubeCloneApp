@@ -7,7 +7,7 @@ function SideBar({ isSidebarOpen }) {
       className={`
         fixed top-0 left-0 pt-14 h-full bg-white z-20
         transition-[width] duration-300 ease-in-out
-        ${isSidebarOpen ? 'w-56' : 'w-16'}
+        ${isSidebarOpen ? 'w-48' : 'w-16'}
       `}
       style={{
         boxShadow: 'none',

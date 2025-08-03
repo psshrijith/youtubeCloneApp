@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { trendingVideos } from "../services/youtube";
 import VideoCard from "./VideoCard";
-import YoutubePlayer from "./YoutubePlayer";
+import {useNavigate} from "react-router-dom";
 
 export default function HomePage() {
-
+    const navigate = useNavigate();
     const [videos, setVideos] = useState([]);
-    const [selectedVideo, setSelectedVideo] = useState(null);
 
     useEffect(() => {
         const fetchTrending = async() => {
             const data = await trendingVideos();
-            console.log(data);
             setVideos(data);
         }
         fetchTrending();
@@ -20,16 +18,9 @@ export default function HomePage() {
 
     return (
             <div className="flex flex-col gap-4">
-                {selectedVideo && (
-                    <YoutubePlayer
-                        id={selectedVideo.id}
-                        title={selectedVideo.title}
-                    />
-                )}
-
                 <div className="flex flex-row flex-wrap">
                     { videos.map((video) => (
-                      <div key={video?.id} onClick={() => setSelectedVideo(video)}>
+                      <div key={video?.id} onClick={() => navigate(`/watch/${video?.id}`)}>
                         <VideoCard
                             video={{
                                 id: video?.id,
