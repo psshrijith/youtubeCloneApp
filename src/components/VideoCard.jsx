@@ -1,9 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 export default function VideoCard({video}) {
     const{
-        id,
         title,
         thumbnail,
         channelTitle,
@@ -13,8 +11,7 @@ export default function VideoCard({video}) {
     } = video
 
     return (
-        <Link to={`/watch/${id}`} className="w-1/3 sm:w-80 cursor-pointer">
-            <div className="flex flex-col rounded-xl overflow-hidden hover:shadow-md sm:w-1/4 mx-2">
+            <div className="flex flex-col rounded-xl overflow-hidden hover:shadow-md mx-2">
                 <img
                     src={thumbnail}
                     alt={title}
@@ -38,6 +35,5 @@ export default function VideoCard({video}) {
                 </div>
 
             </div>
-        </Link>
     )
 }
