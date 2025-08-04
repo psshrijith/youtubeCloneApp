@@ -16,6 +16,7 @@ export const fetchVideos = async (query) => {
       },
     });
 
+
     const videoItems = searchResponse.data.items;
     const videoIds = videoItems.map(item => item.id.videoId);
     const channelIds = videoItems.map(item => item.snippet.channelId);
@@ -99,3 +100,31 @@ const fetchChannelAvatars = async (channelIds) => {
     return {};
   }
 };
+
+export const trendingVideos = async() => {
+  try {
+    const response = await axios.get(`${BASE_URL}/videos`, {
+      params: {
+        part: 'snippet,contentDetails,statistics',
+        chart: 'mostPopular',
+        regionCode: 'IN',
+        maxResults: 12,
+        key: API_KEY,
+      }
+    })
+
+    return response.data.items.map((item) => ({
+      id: item?.id,
+      title: item?.snippet?.title,
+      thumbnail: item?.snippet?.thumbnails?.medium.url,
+      channelTitle: item?.snippet?.channelTitle,
+      views: item?.statistics?.viewCount,
+      likes: item?.statistics?.likeCount,
+      publishedAt: item?.snippet?.publishedAt,
+    }));
+  }
+  catch(error){
+    console.log("error in trending videos", error);
+    return [];
+  }
+}
