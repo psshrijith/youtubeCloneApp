@@ -9,9 +9,9 @@ function YoutubePlayer() {
     const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 
     return (
-        <div className="flex items-center justify-center">
-            {loading && <div className="w-full h-full flex items-center justify-center text-gray-500">Loading...</div>}
-            <div className="relative w-full aspect-video mb-4 rounded-lg overflow-auto">
+        <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden">
+            {loading &&
+                <div className="w-full h-full flex items-center justify-center text-gray-500">Loading...</div>}
                 <iframe
                     width="100%"
                     height="100%"
@@ -23,7 +23,6 @@ function YoutubePlayer() {
                     className="w-full h-full"
                     onLoad={() => setLoading(false)}
                 />
-            </div>
         </div>
     );
 }
