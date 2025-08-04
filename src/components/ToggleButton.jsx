@@ -1,6 +1,5 @@
-// ToggleButton.jsx
 import React, { useContext } from 'react';
-import ToggleContext  from '../contexts/ToggleContext';
+import ToggleContext from '../contexts/ToggleContext';
 
 function ToggleButton() {
     const { isToggled, toggle } = useContext(ToggleContext);
@@ -8,28 +7,14 @@ function ToggleButton() {
     return (
         <button
             onClick={toggle}
-            style={{
-                width: '55px',
-                height: '25px',
-                borderRadius: '15px',
-                border: 'none',
-                backgroundColor: isToggled ? 'gray' : 'black',
-                position: 'relative',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s ease',
-            }}
+            className={`w-[55px] h-[25px] rounded-full border-none relative cursor-pointer transition-colors duration-200 ${
+                isToggled ? 'bg-gray-500' : 'bg-black'
+            }`}
         >
             <div
-                style={{
-                    height: '18px',
-                    width: '18px',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    position: 'absolute',
-                    top: '3px',
-                    left: isToggled ? '32px' : '4px',
-                    transition: 'left 0.2s ease',
-                }}
+                className={`h-[18px] w-[18px] bg-white rounded-full absolute top-[3px] transition-all duration-200 ${
+                    isToggled ? 'left-[32px]' : 'left-[4px]'
+                }`}
             />
         </button>
     );
