@@ -37,7 +37,7 @@ export const fetchTrendingVideosApi = () => {
             part: 'snippet,contentDetails,statistics',
             chart: 'mostPopular',
             regionCode: 'IN',
-            maxResults: 10,
+            maxResults: 12,
             key: API_KEY,
         },
     });
