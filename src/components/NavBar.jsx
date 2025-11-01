@@ -44,7 +44,7 @@ const Navbar = ({ onSearch, toggleSidebar }) => {
             isSearchExpanded={isSearchExpanded}
             notificationCount={notificationCount}
         />
-        
+
       {/* Tooltips */}
       {tooltips.map(({ id, place }) => (
         <ReactTooltip key={id} id={id} place={place} />
