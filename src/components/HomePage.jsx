@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { trendingVideos } from "../services/youtube";
+import React, { useEffect } from "react";
 import VideoCard from "./VideoCard";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -9,7 +8,6 @@ import {trendingVideosSelector} from "../containers/video/selector.js";
 export default function HomePage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [videos, setVideos] = useState([]);
     const trendingVideos = useSelector(trendingVideosSelector);
 
         useEffect(() => {
